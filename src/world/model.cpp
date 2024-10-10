@@ -221,3 +221,4 @@ const float4x4 cg::world::model::get_world_matrix() const
 			{0, 0, 1, 0},
 			{0, 0, 0, 1}};
 }
+// beauty stuff.

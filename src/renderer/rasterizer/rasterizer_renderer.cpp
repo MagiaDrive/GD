@@ -67,3 +67,5 @@ void cg::renderer::rasterization_renderer::render()
 void cg::renderer::rasterization_renderer::destroy() {}
 
 void cg::renderer::rasterization_renderer::update() {}
+
+//beauty stuff.

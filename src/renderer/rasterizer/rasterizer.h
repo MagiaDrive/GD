@@ -200,4 +200,4 @@ namespace cg::renderer
 		return depth_buffer->item(x, y) > z;
 	}
 
-}// namespace cg::renderer
+}//. namespace cg::renderer

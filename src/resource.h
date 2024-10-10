@@ -144,3 +144,4 @@ namespace cg
 	};
 
 }// namespace cg
+// beauty stuff.

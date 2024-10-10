@@ -138,3 +138,5 @@ const float camera::get_phi() const
 {
 	return phi;
 }
+
+// beauty stuff.

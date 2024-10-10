@@ -38,3 +38,4 @@ void cg::utils::save_resource(cg::resource<cg::unsigned_color>& render_target, s
 		std::system(command.c_str());
 }
 
+//beauty stuff.
