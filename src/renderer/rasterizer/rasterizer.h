@@ -84,7 +84,6 @@ namespace cg::renderer
 				render_target->item(i) = in_clear_value;
 			}
 		}
-		// TODO Lab: 1.06 Adjust `set_render_target`, and `clear_render_target` methods of `cg::renderer::rasterizer` class to consume a depth buffer
 	
 		if (depth_buffer)
 		{
@@ -112,7 +111,6 @@ namespace cg::renderer
 	template<typename VB, typename RT>
 	inline void rasterizer<VB, RT>::draw(size_t num_vertexes, size_t vertex_offset)
 	{
-		// TODO Lab: 1.04 Implement `cg::world::camera` class
 		size_t vertex_id = vertex_offset;
 		while (vertex_id < vertex_offset + num_vertexes)
 		{
