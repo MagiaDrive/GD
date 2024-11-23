@@ -59,9 +59,9 @@ float CalcUnshadowedAmount(float3 world_pos)
     return (g_shadow_map.Sample(g_sampler, vShadowTexCoord) >= vLightSpaceDepth) ? 1.0f : 0.5f;
 }
 
-float4 GetLambertianIntensity(PSInput input, float4 light_pos, float4 light_color)
+float4 GetLambertianIntensity(PSInput input, float4 light_position, float4 light_color)
 {
-    float3 to_light = light_pos.xyz - input.world_pos;
+    float3 to_light = light_position.xyz - input.world_pos;
     float distance = length(to_light);
     float attenatuaion = 1.f/(distance*distance + 1.0f);
     return saturate(dot(input.normal, normalize(to_light))) * light_color * attenatuaion;
@@ -70,11 +70,11 @@ float4 GetLambertianIntensity(PSInput input, float4 light_pos, float4 light_colo
 float4 PSMain(PSInput input) : SV_TARGET
 {
     return input.color * CalcUnshadowedAmount(input.world_pos) *
-        (0.5f + 0.5f * GetLambertianIntensity(input, light_pos, light_color));
+        (0.5f + 0.5f * GetLambertianIntensity(input, light.position, light.color));
 }
 
 float4 PSMain_texture(PSInput input) : SV_TARGET
 {
     return g_texture.Sample(g_sampler, input.uv) * CalcUnshadowedAmount(input.world_pos) *
-        (0.5f + 0.5f * GetLambertianIntensity(input, light_pos, light_color));
+        (0.5f + 0.5f * GetLambertianIntensity(input, light.position, light.color));
 }
