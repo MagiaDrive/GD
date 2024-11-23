@@ -29,7 +29,7 @@ struct PSInput
 PSInput VSMain(float4 position : POSITION, float4 normal: NORMAL, float4 ambient : COLOR0, float4 diffuse : COLOR1,  float4 emissive : COLOR2, float4 texcoord : TEXCOORD)
 {
     PSInput result;
-    result.position = mul(lightMatrix, position);
+    result.position = mul(mwpMatrix, position);
     result.color = diffuse;
     result.uv = texcoord.xy;
     result.world_pos = position.xyz;
@@ -40,7 +40,7 @@ PSInput VSMain(float4 position : POSITION, float4 normal: NORMAL, float4 ambient
 PSInput VSShadowMap(float4 position : POSITION, float4 normal: NORMAL, float4 ambient : COLOR0, float4 diffuse : COLOR1,  float4 emissive : COLOR2, float4 texcoord : TEXCOORD)
 {
     PSInput result;
-    result.position = mul(mwpMatrix, position);
+    result.position = mul(lightMatrix, position);
     result.color = diffuse;
     result.uv = texcoord.xy;
     result.world_pos = position.xyz;
