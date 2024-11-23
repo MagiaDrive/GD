@@ -644,7 +644,7 @@ void cg::renderer::dx12_renderer::populate_command_list()
 {
 	//reset
 	THROW_IF_FAILED(command_allocators[frame_index] ->Reset());
-	THROW_IF_FAILED(command_list->Reset(command_allocators[frame_index].Get(), pipeline_state.Get()));
+	THROW_IF_FAILED(command_list->Reset(command_allocators[frame_index].Get(), pipeline_state_shadow.Get()));
 	
 
 	//initial state
