@@ -660,8 +660,8 @@ void cg::renderer::dx12_renderer::populate_command_list()
 	command_list->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
 	//draw shadow map
-	command_list->OMSetRenderTargets(0, nullptr, FALSE, &dsv_heap.get_cpu_descriptor_handle());
-	command_list->ClearDepthStencilView(dsv_heap.get_cpu_descriptor_handle(), D3D12_CLEAR_FLAG_DEPTH, 1.0f, 0, 0, nullptr);
+	command_list->OMSetRenderTargets(0, nullptr, FALSE, &dsv_heap.get_cpu_descriptor_handle(1));
+	command_list->ClearDepthStencilView(dsv_heap.get_cpu_descriptor_handle(1), D3D12_CLEAR_FLAG_DEPTH, 1.0f, 0, 0, nullptr);
 	
 	//drawing plane color objects
 	for (size_t s = 0; s < model->get_index_buffers().size(); s++){
